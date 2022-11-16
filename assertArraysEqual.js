@@ -1,19 +1,20 @@
-
-const eqArrays = function(a, b) {
-  //console.log(a);// checking
-  // console.log(a.length);//checking
-  for (let i = 0; i < a.length; i++) {
-    if (a[i] !== b[i]) {
-      return false; // by entering into this if, it will return false and stop the execution
+const eqArrays = function (array1, array2) {
+  //console.log(array1.keys());
+  for (let i of array1.keys()) {
+    //console.log("this is i =", i);
+    //console.log("this is [i] =", actual[i]);
+    if (array1[i] !== array2[i]) {
+      return false;
     }
-  } return true; //otherwise if it doesnt enter into the conditional, it'll return true
+  } return true;
+};
+
+const assertArraysEqual = function (array1, array2) {
+  let isEqual = eqArrays(array1, array2);
+  return isEqual ? `🟢🟢🟢Assertion Passed` : `🟥🟥🟥Assertion Failed`;
 };
 
 
-const assertArraysEqual = function(a, b) {
-  let bool = eqArrays(a, b);
-  return bool ? `🟢🟢🟢Assertion Passed` : `🟥🟥🟥Assertion Failed`;
-};
-
-console.log(assertArraysEqual([1,2,3],[1,2,3]));
-console.log(assertArraysEqual([1,2,3],[1,"8",3]));
+//Test code
+console.log(assertArraysEqual([7, 2, 3], [7, 2, 3]));
+console.log(assertArraysEqual([1, 4, 3], [1, 2, 3]));
