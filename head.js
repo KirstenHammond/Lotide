@@ -1,12 +1,12 @@
 
-const assertEqual = function(actual, expected) {
-  return actual === expected ? console.log(`🟢🟢🟢Assertion Passed: ${actual} === ${expected}`) : console.log(`🟥🟥🟥Assertion Failed: ${actual} !== ${expected}`);
-};
+//HEAD
+//Returns the first item in an array
+//Assert equal used to test the expected value passes/fails
 
+const head = array => array[0];
 
-const head = function(array) {
-  return array[0];
-};
+const assertEqual = (input1, input2) => input1 === input2 ? console.log(`🟢🟢🟢Assertion Passed: ${input1} === ${input2}`) : console.log(`🟥🟥🟥Assertion Failed: ${input1} !== ${input2}`);
 
-assertEqual(head([5, 6, 7]), 5);
-assertEqual(head(["Hello", "Lighthouse", "Labs"]), "Hello");
+//Test cases
+assertEqual(head([5, 6, 7]), 5); // True
+assertEqual(head(["Hello", "Lighthouse", "Labs"]), "Labs"); //False

@@ -1,18 +1,17 @@
-/* 
-Given a list of items and a seperate list of specific items to count, iterate through and return the counts of those specific items highlighted
-*/
+//COUNT ONLY
+// A function that takes an array list of items and an object of items with true/false values.
+//Returns an object with the matching items and how many times they occur on the array list
 
-const assertEqual = function (input1, input2) {
-  return input1 === input2 ? console.log(`🟢🟢🟢Assertion Passed: ${input1} === ${input2}`) : console.log(`🟥🟥🟥Assertion Failed: ${input1} !== ${input2}`);
-};
+/*
+Original code kept for records:
 
-/* const countOnly = function (allItems, itemsToCount) {
+const countOnly = function (allItems, itemsToCount) {
   //console.log("allitems =", allItems);
   //console.log("itemstocount=", itemsToCount);
   let result = {};
   let counter = 1;
   let key = ""; //will refactor later
-  for (i of allItems) {
+  for (let i of allItems) {
     key = i;
     //console.log("outer loop i =", i);
     if (itemsToCount[i]) { //if i is a truthy value in itemsToCount
@@ -30,16 +29,15 @@ const assertEqual = function (input1, input2) {
 Condensed and refactored below:
 */
 
-const countOnly = function (allItems, itemsToCount) {
+const countOnly = (allItems, itemsToCount) => {
   let result = {};
-  for (i of allItems) {
-    if (itemsToCount[i]) {
-      !result[i] ? result[i] = 1 : result[i] += 1;
+  for (let item of allItems) {
+    if (itemsToCount[item]) { // If the list containing the truthy values matches the list, and is a truthy value
+      !result[item] ? result[item] = 1 : result[item] += 1; //And the object isn't already populated with the item, create it and start the count at zero. Else, add one to the count
     }
   } return result;
 }
 
-//console.log(countOnly(["b", "a", "b", "d", "d", "a", "d", "d"], { a: true, d: true, b: true, f: true }));
 
 const firstNames = [
   "Karl",
@@ -53,9 +51,15 @@ const firstNames = [
   "Joe"
 ];
 
+const assertEqual = (input1, input2) => input1 === input2 ? console.log(`🟢🟢🟢Assertion Passed: ${input1} === ${input2}`) : console.log(`🟥🟥🟥Assertion Failed: ${input1} !== ${input2}`);
+
 let result1 = countOnly(firstNames, { "Jason": true, "Karima": true, "Fang": true, "Agouhanna": false} );
-console.log(result1);
-assertEqual(result1["Jason"], 1);
-assertEqual(result1["Karima"], undefined);
-assertEqual(result1["Fang"], 2);
-assertEqual(result1["Agouhanna"], undefined);
+console.log(result1); //{Fang: 2, Jason:1}
+assertEqual(result1["Jason"], 1);//Passes
+assertEqual(result1["Karima"], undefined);//Passes
+assertEqual(result1["Fang"], 2);//Passes
+assertEqual(result1["Agouhanna"], undefined); //Passes
+
+console.log(countOnly(["b", "a", "b", "d", "d", "a", "d", "d"], { a: true, d: true, b: true, f: true }));//{ b: 2, a: 2, d: 4 }
+
+

@@ -1,7 +1,12 @@
+//Letter Positions
+//Takes in a string and returns an object with string characters for keys and the values containing an array of the index number at which the character occurs
+
 /* 
+Original code kept for reference:
+
 const letterPositions = function (string) {
   let result = {};
-  for (i in string) {
+  for (let i in string) {
     let key= string[i];
     let arr = [i];
     if (!result[key]) {
@@ -14,17 +19,17 @@ const letterPositions = function (string) {
   } return result;
 }
 
-console.log(letterPositions("hello"));
-Works but is hella long and looks terrible.
+Works but looks terrible.
 
-Refactored below
+Refactored below:
 */
 
-const letterPositions = function (string) {
+const letterPositions = string => {
   let result = {};
-  for (let i in string) {
-    result[string[i]] ? result[string[i]].push(i) : result[string[i]] = [i];
+  for (let item in string) {
+    result[string[item]] ? result[string[item]].push(item) : result[string[item]] = [item]; //If the object already contains the character and array, push the index into the array. Else, create and assign the key/value pair
     }  return result;
   }
 
-console.log(letterPositions("hello"));
+//Test code
+console.log(letterPositions("hello")); // { h: [ '0' ], e: [ '1' ], l: [ '2', '3' ], o: [ '4' ] }

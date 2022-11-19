@@ -1,50 +1,33 @@
-/* let numbers = [1,2,3,4]
+//MAP
+//Take in an array and a callback function and return an array of the first character of the first word in the array
 
-let ourMap = (array, callback) => {
-  let output = [];
-  for (let element of array) {
-    let returnVal = callback(element)
-    output.push(returnVal);
-  }
-  return output;
-}
-
-let doOnEachLoop = num => {
-  return num * 2;
-}
-
-let finalArray = ourMap(numbers, doOnEachLoop)
-console.log(finalArray) */
-
-const words = ["ground", "control", "to", "major", "tom"];
-
-const map = function(array, callback) {
+const map = (array, callback) => { //The callback in this case is anonymous as it is called in the callback below
   const results = [];
   for (let item of array) {
-    results.push(callback(item));
+    results.push(callback(item)); //The result of call back item will be the first character of each string in the array
   }
   return results;
 }
 
-const results1 = map(words, word => word[0]);
-console.log(results1);
 
+const assertArraysEqual = (array1, array2) => { 
+  let isEqual = eqArrays(array1, array2); //Accessing eqArrays to obtain a boolean value from comparison
+  return isEqual ? `🟢🟢🟢Assertion Passed: ${array1} === ${array2}` : `🟥🟥🟥Assertion Failed: ${array1} !== ${array2}`;
+};
 
-const eqArrays = function (array1, array2) {
+const eqArrays = (array1, array2) => {
   if (array1.length !== array2.length) {
     return false;
   }
-  for (let i = 0; i < array1.length; i++) {
+  for (let i in array1) {  
     if (array1[i] !== array2[i]) {
       return false
     }
   } return true;
 }
 
-const assertArraysEqual = function (array1, array2) {
-  let isEqual = eqArrays(array1, array2);
-  return isEqual ? `🟢🟢🟢Assertion Passed: ${array1} === ${array2}` : `🟥🟥🟥Assertion Failed: ${array1} != ${array2}`;
-};
-
-
-console.log(assertArraysEqual([ 'g', 'c', 't', 'm', 't' ], [ 'g', 'c', 't', 'm', 't' ]))
+//Test code
+const words = ["ground", "control", "to", "major", "tom"];
+const results1 = map(words, word => word[0]); // Here is the anonymouse callback, assigned to a variable
+console.log(results1); //[ 'g', 'c', 't', 'm', 't' ]
+console.log(assertArraysEqual([ 'g', 'c', 't', 'm', 't' ], [ 'g', 'c', 't', 'm', 't' ])) //Passes as they match
