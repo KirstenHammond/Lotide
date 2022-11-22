@@ -1,7 +1,7 @@
 {
-  "name": "lotide",
+  "name": "@kirstenhammond/lotide",
   "version": "1.0.0",
-  "description": "mocha chai testing for lotide library",
+  "description": "LightHouse labs function library and testing using mocha chai",
   "main": "assertArraysEqual.js",
   "scripts": {
     "test": "mocha"
