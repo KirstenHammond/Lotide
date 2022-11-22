@@ -1,13 +1,33 @@
 //Count letters test code
 
 const countLetters = require('../countLetters');
-const assertEqual = require('../assertEqual');
+const assert = require("chai").assert;
 
-//Test code
-console.log(countLetters("hello"));//{ h: 1, e: 1, l: 2, o: 1 }
-let checker = countLetters("hello"); 
-assertEqual(checker["l"], 2);// Passes as l value in returning object = 2
+/* 
+const assert = require("chai").assert;
 
-console.log(countLetters("Hello World"));// { H: 1, e: 1, l: 3, o: 2, ' ': 1, W: 1, r: 1, d: 1 }
-let checker2 = countLetters("Hello World");// 
-assertEqual(checker2["o"], 1);// Fails as o occurs twice, not once.
+describe("Function name", () => {
+  it("should return x from x", () => {
+    assert.deepEqual(func(), "exp");
+  });
+}); 
+
+.isObject(expOutput, error message)
+.deepEqual
+.strictEqual
+*/
+
+describe("countLettersTest", () => {
+  it("should return an object", () => {
+    assert.isObject(countLetters("hello"), "not an object" );
+  });
+
+  it("should return an object detailling how many times the letters occur", () => {
+    assert.deepEqual(countLetters("hello"), { h: 1, e: 1, l: 2, o: 1 });
+  });
+
+  it("can return an objects key value", () => {
+    let checker = countLetters("hello")
+    assert.deepEqual(checker["o"], 1);
+  });
+});
