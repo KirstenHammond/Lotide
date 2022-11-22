@@ -8,8 +8,11 @@ const assertObjectsEqual = (object1, object2) => {
   return isObjectEqual ? `🟢🟢🟢Assertion Passed: ${inspect(object1)} === ${inspect(object2)}` : `🟥🟥🟥Assertion Failed: ${inspect(object1)} !== ${inspect(object2)}`;
 }
 
+const eqObjects = require("./eqObjects");
+module.exports = assertObjectsEqual;
 
-const eqObjects = (object1, object2) => {
+
+/* const eqObjects = (object1, object2) => {
   let objectKeys1 = Object.keys(object1);
   let objectKeys2 = Object.keys(object2);
 
@@ -41,17 +44,6 @@ const eqArrays = (array1, array2) => {
       return false
     }
   } return true;
-}
+} */
 
 
-
-//Test code
-const ab = { a: "1", b: [2, 4] };
-const ba = { b: [2, 4], a: "1" };
-
-const abc = { a: "1", b: "2", c: "3" };
-console.log(eqObjects(ab, abc));; // false
-//console.log(assertObjectsEqual(ab, abc)); //fails as they do not match
-
-console.log(eqObjects(ab, ba));; //true
-//console.log(assertObjectsEqual(ab, ba)); //passes

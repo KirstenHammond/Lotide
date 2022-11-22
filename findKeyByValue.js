@@ -10,22 +10,5 @@ const findKeyByValue = (object, value) => {
   }
 };
 
-const assertEqual = (input1, input2) => input1 === input2 ? console.log(`🟢🟢🟢Assertion Passed: ${input1} === ${input2}`) : console.log(`🟥🟥🟥Assertion Failed: ${input1} !== ${input2}`);
+module.exports = findKeyByValue;
 
-//Test code
-const bestTVShowsByGenre = {
-  sci_fi: "The Expanse",
-  comedy: "Brooklyn Nine-Nine",
-  drama:  "The Wire"
-};
-
-assertEqual(findKeyByValue(bestTVShowsByGenre, "The Wire"), "drama"); //Passes
-assertEqual(findKeyByValue(bestTVShowsByGenre, "That '70s Show"), undefined);//Passes as this doesnt exist
-
-const animals = {
-  cat: "Oscar", 
-  dog: "Muesli",
-  neighboursDog: "Ellie"
-}
-
-assertEqual(findKeyByValue(animals, "Muesli"), "cat");// Fails as dog is expected key

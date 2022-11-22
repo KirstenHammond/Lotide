@@ -2,6 +2,7 @@
 // Takes two arrays and returns a boolean value if they are equal
 
 
+
 const eqArrays = (array1, array2) => {
       //First check the length is equal
   if (array1.length !== array2.length) {
