@@ -2,7 +2,13 @@
 
 const findKeyByValue = require('../findKeyByValue');
 
+const assert = require("chai").assert;
 
+describe("Function name", () => {
+  it("should return x from x", () => {
+    assert.deepEqual(func(), "exp");
+  });
+}); 
 
 //Test code
 const assertEqual = require('../assertEqual');

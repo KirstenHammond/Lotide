@@ -54,8 +54,8 @@ The following functions are currently implemented:
 
 * `letterPositions(string)`: Takes in a string and returns an object with string characters for keys and the values containing an array of the index number at which the character occurs
 
-* `map(array, callback)`: Take in an array and a callback function and return an array of the first character of the first word in the array
+* `map(array, callback)`: Takes in an array and a callback function and return an array of the first character of the first word in the array
 
 * `takeUntil(array, callback)`: Uses a callback function to determine if values in an array are truthy or falsey. In this case, return an array with all of the (falsey) values up until the point that it is truthy.
 
-* `without(source, valuesToRemove)`: Takes in an array and a value and returns a new array with the value removed from the original array. Uses assertArraysEqual and eqArrays to determine if the expected result is correct
+* `without(source, valuesToRemove)`: Takes in an array and a value and returns a new array with the value removed from the original array.
